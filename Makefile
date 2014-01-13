@@ -27,8 +27,8 @@ CXXLIBS = -lstdc++
 
 default: sample
 
-sample: sample.o giounit_f.o giounit_cxx.o
-	$(F90) $(F90FLAGS) -o sample sample.o giounit_f.o giounit_cxx.o $(CXXLIBS)
+sample: sample.o giounit_open.o giounit_helper.o
+	$(F90) $(F90FLAGS) -o sample sample.o giounit_open.o giounit_helper.o $(CXXLIBS)
 
 check: sample
 	sh test.sh
