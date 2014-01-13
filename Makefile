@@ -1,3 +1,14 @@
+##############################################################################
+#
+# giounit: gfortran utility for file and logical unit assginment
+#
+# Copyright (C) 2013-2014 by Synge Todo <wistaria@comp-phys.org>
+#
+# Distributed under the Boost Software License, Version 1.0. (See accompanying
+# file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+#
+##############################################################################
+
 F90 = gfortran
 F90FLAGS = -O2
 
@@ -8,10 +19,7 @@ CXXLIBS = -lstdc++
 .SUFFIXES:
 .SUFFIXES: .o .f90 .F90 .C
 
-.f90.o:
-	$(F90) $(F90FLAGS) -c $<
-
-.F90.o:
+.f90.o .F90.o:
 	$(F90) $(F90FLAGS) -c $<
 
 .C.o:

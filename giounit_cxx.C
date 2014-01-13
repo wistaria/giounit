@@ -1,13 +1,15 @@
 /*****************************************************************************
 *
-* giounit
+* giounit: gfortran utility for file and logical unit assginment
 *
-* Copyright (C) 2014 by Synge Todo <wistaria@comp-phys.org>
+* Copyright (C) 2013-2014 by Synge Todo <wistaria@comp-phys.org>
 *
 * Distributed under the Boost Software License, Version 1.0. (See accompanying
 * file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 *
 *****************************************************************************/
+
+#if defined(__GNUC__)
 
 #ifndef GIOUNIT_PREFIX
 #define GIOUNIT_PREFIX "FORT"
@@ -34,8 +36,6 @@ void giounit_open(int unit, int len, const char *path);
 void giounit_close(int unit);
 
 }
-
-namespace {
 
 struct giounit_helper {
   giounit_helper() : units_(), debug_(false) {
@@ -67,4 +67,4 @@ struct giounit_helper {
   bool debug_;
 } helper;
 
-} // end namespace giounit_helper
+#endif // defined(__GNUC__)

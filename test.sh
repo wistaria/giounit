@@ -15,4 +15,3 @@ export GIOUNIT_DEBUG=1
 ./sample
 
 cat sample.out
-
