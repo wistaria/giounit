@@ -29,4 +29,4 @@ distclean: clean
 	rm -f sample
 
 clean:
-	rm -f *.o
+	rm -f *.o sample.in sample.out
