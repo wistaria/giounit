@@ -25,19 +25,25 @@ CXXLIBS = -lstdc++
 .C.o:
 	$(CXX) $(CXXFLAGS) -c $<
 
-default: sample_scan
+default: sample_scan sample_open1 sample_open2
 
-giounit_scanner.o: giounit.h
-giounit_helper.o: giounit.h
+giounit_scan.o: giounit.h
+giounit_open.o: giounit.h
 
 sample_scan: sample_scan.o giounit_util.o giounit_scan.o
 	$(F90) $(F90FLAGS) -o sample_scan sample_scan.o giounit_util.o giounit_scan.o $(CXXLIBS)
 
-check: sample_scan
+sample_open1: sample_open1.o giounit_util.o giounit_open.o
+	$(F90) $(F90FLAGS) -o sample_open1 sample_open1.o giounit_util.o giounit_open.o $(CXXLIBS)
+
+sample_open2: sample_open2.o giounit_util.o giounit_open.o
+	$(F90) $(F90FLAGS) -o sample_open2 sample_open2.o giounit_util.o giounit_open.o $(CXXLIBS)
+
+check: sample_scan sample_open1 sample_open2
 	sh test.sh
 
 distclean: clean
-	rm -f sample_scan
+	rm -f sample_scan sample_open1 sample_open2
 
 clean:
-	rm -f *.o sample_scan.in sample_scan.out
+	rm -f *.o sample_scan.in sample_scan.out sample_open.bin sample_open.asc
