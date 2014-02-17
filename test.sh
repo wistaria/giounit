@@ -2,16 +2,16 @@
 
 set -x
 
-cat << EOF > sample.in
+cat << EOF > sample_scan.in
 256
 EOF
-cat sample.in
-rm -f sample.out
+cat sample_scan.in
+rm -f sample_scan.out
 
-export FORT10=sample.out
-export FORT11=sample.in
+export FORT10=sample_scan.out
+export FORT11=sample_scan.in
 export GIOUNIT_DEBUG=1
 
-./sample
+./sample_scan
 
-cat sample.out
+cat sample_scan.out
