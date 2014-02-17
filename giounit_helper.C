@@ -33,6 +33,7 @@
 extern "C" {
 
 void giounit_open(int unit, int len, const char *path);
+void giounit_open_unformatted(int unit, int len, const char *path);
 void giounit_close(int unit);
 
 }
